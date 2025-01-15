@@ -1,1 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meowmasters Games</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #6a0dad; /* Purple background */
+            color: white; /* White text color */
+            font-family: Arial, sans-serif; /* Font family */
+            text-align: center; /* Center-align text */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+        header {
+            padding: 20px; /* Padding for header */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for header */
+        }
+        .search-bar {
+            margin: 20px 0; /* Margin for search bar */
+        }
+        input[type="text"] {
+            padding: 10px; /* Padding for input field */
+            width: 300px; /* Width for input field */
+            border-radius: 5px; /* Rounded corners for input */
+            border: none; /* Remove border */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for input */
+        }
+        .game-container {
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Allow wrapping */
+            justify-content: center; /* Center items */
+            margin: 20px; /* Margin for game container */
+        }
+        .game-embed {
+            margin: 10px; /* Margin for game embed */
+            border: 2px solid white; /* White border */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Ensure corners are rounded */
+            width: calc(25% - 20px); /* Make 4 games per row */
+            box-sizing: border-box; /* Include padding and border in width */
+            transition: transform 0.3s; /* Transition for hover effect */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+        .game-embed:hover {
+            transform: scale(1.05); /* Scale up on hover */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+        }
+        iframe {
+            width: 100%; /* Full width of parent */
+            height: 200px; /* Fixed height for games */
+        }
+        .game-title {
+            margin: 10px 0; /* Margin for game title */
+        }
+        .proxy-container {
+            padding: 20px; /* Padding for proxy container */
+            background-color: #4a0072; /* Darker purple */
+            border-radius: 10px; /* Rounded corners */
+            margin: 20px; /* Margin for proxy container */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow for proxy container */
+        }
+        .proxy-container input[type="text"] {
+            width: 70%; /* Width for proxy URL input */
+            margin-right: 10px; /* Margin for spacing */
+        }
+        .proxy-container button {
+            padding: 10px; /* Padding for proxy button */
+            background-color: white; /* White background */
+            color: #6a0dad; /* Purple text */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Meowmasters Games</h1>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for your favorite games..." onkeyup="filterGames()">
+        </div>
+    </header>
+    <main id="game-list">
+        <h2>Play Unblocked Games</h2>
+        <div class="game-container">
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/smash.html')">
+                <div class="game-title">Super Smash Flash 2</div>
+                <iframe src="https://pattt54.github.io/SK/smash.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/slope.html')">
+                <div class="game-title">Slope</div>
+                <iframe src="https://pattt54.github.io/SK/slope.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/agar.html')">
+                <div class="game-title">Agar.io</div>
+                <iframe src="https://pattt54.github.io/SK/agar.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="puzzle" onclick="openFullscreen('https://pattt54.github.io/SK/cuttherope.html')">
+                <div class="game-title">Cut The Rope</div>
+                <iframe src="https://pattt54.github.io/SK/cuttherope.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/krunker.html')">
+                <div class="game-title">Krunker</div>
+                <iframe src="https://pattt54.github.io/SK/krunker.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="sports" onclick="openFullscreen('https://pattt54.github.io/SK/basketball.html')">
+                <div class="game-title">Basketball Stars</div>
+                <iframe src="https://pattt54.github.io/SK/basketball.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/shellshockers.html')">
+                <div class="game-title">Shell Shockers</div>
+                <iframe src="https://pattt54.github.io/SK/shellshockers.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/bonk.html')">
+                <div class="game-title">Bonk.io</div>
+                <iframe src="https://pattt54.github.io/SK/bonk.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/doomsday.html')">
+                <div class="game-title">Doomsday Shooter</div>
+                <iframe src="https://pattt54.github.io/SK/doomsday.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/mario.html')">
+                <div class="game-title">Super Mario 64</div>
+                <iframe src="https://pattt54.github.io/SK/mario.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/geometry.html')">
+                <div class="game-title">Geometry Dash</div>
+                <iframe src="https://pattt54.github.io/SK/geometry.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/doodle.html')">
+                <div class="game-title">Doodle Jump</div>
+                <iframe src="https://pattt54.github.io/SK/doodle.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/tetris.html')">
+                <div class="game-title">Tetris</div>
+                <iframe src="https://pattt54.github.io/SK/tetris.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="puzzle" onclick="openFullscreen('https://pattt54.github.io/SK/pacman.html')">
+                <div class="game-title">Pac-Man</div>
+                <iframe src="https://pattt54.github.io/SK/pacman.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/minecraft.html')">
+                <div class="game-title">Minecraft Classic</div>
+                <iframe src="https://pattt54.github.io/SK/minecraft.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/happy.html')">
+                <div class="game-title">Happy Wheels</div>
+                <iframe src="https://pattt54.github.io/SK/happy.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/tank.html')">
+                <div class="game-title">Tank Trouble</div>
+                <iframe src="https://pattt54.github.io/SK/tank.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/supermario.html')">
+                <div class="game-title">Super Mario Bros</div>
+                <iframe src="https://pattt54.github.io/SK/supermario.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/bubble.html')">
+                <div class="game-title">Bubble Shooter</div>
+                <iframe src="https://pattt54.github.io/SK/bubble.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/realm.html')">
+                <div class="game-title">Realm of the Mad God</div>
+                <iframe src="https://pattt54.github.io/SK/realm.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/crushthecastle.html')">
+                <div class="game-title">Crush the Castle</div>
+                <iframe src="https://pattt54.github.io/SK/crushthecastle.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="puzzle" onclick="openFullscreen('https://pattt54.github.io/SK/unblockme.html')">
+                <div class="game-title">Unblock Me</div>
+                <iframe src="https://pattt54.github.io/SK/unblockme.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/flappy.html')">
+                <div class="game-title">Flappy Bird</div>
+                <iframe src="https://pattt54.github.io/SK/flappy.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/cookie.html')">
+                <div class="game-title">Cookie Clicker</div>
+                <iframe src="https://pattt54.github.io/SK/cookie.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/hardest.html')">
+                <div class="game-title">World’s Hardest Game</div>
+                <iframe src="https://pattt54.github.io/SK/hardest.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/tombraider.html')">
+                <div class="game-title">Tomb Raider</div>
+                <iframe src="https://pattt54.github.io/SK/tombraider.html"></iframe>
+            </div>
+            <div class="game-embed" data-category="action" onclick="openFullscreen('https://pattt54.github.io/SK/stickfight.html')">
+                <div class="game-title">Stick Fight</div>
+                <iframe src="https://pattt54.github.io/SK/stickfight.html"></iframe>
+            </div>
+        </div>
 
+        <div class="proxy-container">
+            <h3>Access Blocked Websites</h3>
+            <input type="text" id="proxy-url" placeholder="Enter URL to browse">
+            <button onclick="openProxy()">Go</button>
+        </div>
+    </main>
+
+    <script>
+        function openFullscreen(url) {
+            const iframeFullscreen = document.createElement('iframe');
+            iframeFullscreen.src = url;
+            iframeFullscreen.style.width = '100%';
+            iframeFullscreen.style.height = '100%';
+            iframeFullscreen.style.border = 'none';
+
+            const fullscreenDiv = document.createElement('div');
+            fullscreenDiv.style.position = 'fixed';
+            fullscreenDiv.style.top = '0';
+            fullscreenDiv.style.left = '0';
+            fullscreenDiv.style.width = '100%';
+            fullscreenDiv.style.height = '100%';
+            fullscreenDiv.style.backgroundColor = 'black';
+            fullscreenDiv.style.zIndex = '9999';
+            fullscreenDiv.appendChild(iframeFullscreen);
+            document.body.appendChild(fullscreenDiv);
+
+            fullscreenDiv.addEventListener('click', () => {
+                document.body.removeChild(fullscreenDiv); // Close fullscreen on click
+            });
+        }
+
+        function filterGames() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const games = document.querySelectorAll('.game-embed');
+
+            games.forEach(game => {
+                const title = game.querySelector('.game-title').textContent.toLowerCase();
+                if (title.includes(searchInput)) {
+                    game.style.display = 'block'; // Show game
+                } else {
+                    game.style.display = 'none'; // Hide game
+                }
+            });
+        }
+
+        function openProxy() {
+            const url = document.getElementById('proxy-url').value;
+            if (url) {
+                window.open('https://pattt54.github.io/SK/proxy.html?url=' + encodeURIComponent(url), '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
